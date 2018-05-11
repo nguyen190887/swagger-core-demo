@@ -27,6 +27,7 @@ namespace SwaggerDemo
         {
             services.AddMvc();
 
+            // swagger configuration
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
@@ -41,13 +42,14 @@ namespace SwaggerDemo
                 app.UseDeveloperExceptionPage();
             }
 
+            // swagger configuration
             app.UseSwagger();
 
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API v1");
             });
-            
+
             app.UseMvc();
         }
     }
